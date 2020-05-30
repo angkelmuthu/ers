@@ -25,34 +25,7 @@ if ($jenis_tabel == 'reguler_table') {
 
     $string .= "\n\n    public function index()
     {
-        \$q = urldecode(\$this->input->get('q', TRUE));
-        \$start = intval(\$this->uri->segment(3));
 
-        if (\$q <> '') {
-            \$config['base_url'] = base_url() . '$index.php/c_url/index.html?q=' . urlencode(\$q);
-            \$config['first_url'] = base_url() . 'index.php/$c_url/index.html?q=' . urlencode(\$q);
-        } else {
-            \$config['base_url'] = base_url() . 'index.php/$c_url/index/';
-            \$config['first_url'] = base_url() . 'index.php/$c_url/index/';
-        }
-
-        \$config['per_page'] = 10;
-        \$config['page_query_string'] = FALSE;
-        \$config['total_rows'] = \$this->" . $m . "->total_rows(\$q);
-        \$$c_url = \$this->" . $m . "->get_limit_data(\$config['per_page'], \$start, \$q);
-        \$config['full_tag_open'] = '<ul class=\"pagination justify-content-center\">';
-        \$config['full_tag_close'] = '</ul>';
-        \$this->load->library('pagination');
-        \$this->pagination->initialize(\$config);
-
-        \$data = array(
-            '" . $c_url . "_data' => \$$c_url,
-            'q' => \$q,
-            'pagination' => \$this->pagination->create_links(),
-            'total_rows' => \$config['total_rows'],
-            'start' => \$start,
-        );
-        \$this->template->load('template','$c_url/$v_list', \$data);
     }";
 } else {
 
@@ -71,7 +44,7 @@ $string .= "\n\n    public function read(\$id)
     {
         \$row = \$this->" . $m . "->get_by_id(\$id);
         if (\$row) {
-            \$data = array(";
+            \$data = array('id' => \$row->$pk,";
 foreach ($all as $row) {
     $string .= "\n\t\t'" . $row['column_name'] . "' => \$row->" . $row['column_name'] . ",";
 }
@@ -86,10 +59,10 @@ $string .= "\n\t    );
         }
     }
 
-    public function list(\$nomr,\$idxdaftar)
+    public function list(\$NOMR,\$IDXDAFTAR)
     {
         \$data = array(
-            'datalist' => \$this->" . $m . "->get_datalist(\$nomr,\$idxdaftar),
+            'datalist' => \$this->" . $m . "->get_datalist(\$NOMR,\$IDXDAFTAR),
         );
         \$this->template->load('template', '$c_url/$v_list', \$data);
     }
@@ -109,8 +82,8 @@ $string .= "\n\t);
     public function create_action()
     {
         \$this->_rules();
-        \$nomr=\$this->input->post('nomr');
-        \$idxdaftar=\$this->input->post('idxdaftar');
+        \$NOMR=\$this->input->post('NOMR');
+        \$IDXDAFTAR=\$this->input->post('IDXDAFTAR');
         if (\$this->form_validation->run() == FALSE) {
             \$this->create();
         } else {
@@ -126,11 +99,11 @@ $string .= "\n\t    );
             <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                 <span aria-hidden=\"true\"><i class=\"fal fa-times\"></i></span>
             </button><strong> Create Record Success 2</strong></div>');
-            redirect(site_url('$c_url/list/'.\$nomr.'/'.\$idxdaftar));
+            redirect(site_url('$c_url/list/'.\$NOMR.'/'.\$IDXDAFTAR));
         }
     }
 
-    public function update(\$nomr,\$idxdaftar,\$id)
+    public function update(\$NOMR,\$IDXDAFTAR,\$id)
     {
         \$row = \$this->" . $m . "->get_by_id(\$id);
 
@@ -155,8 +128,8 @@ $string .= "\n\t    );
     public function update_action()
     {
         \$this->_rules();
-        \$nomr=\$this->input->post('nomr');
-        \$idxdaftar=\$this->input->post('idxdaftar');
+        \$NOMR=\$this->input->post('NOMR');
+        \$IDXDAFTAR=\$this->input->post('IDXDAFTAR');
         if (\$this->form_validation->run() == FALSE) {
             \$this->update(\$this->input->post('$pk', TRUE));
         } else {
@@ -171,11 +144,11 @@ $string .= "\n\t    );
             <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                 <span aria-hidden=\"true\"><i class=\"fal fa-times\"></i></span>
             </button><strong> Update Record Success</strong></div>');
-            redirect(site_url('$c_url/list/'.\$nomr.'/'.\$idxdaftar));
+            redirect(site_url('$c_url/list/'.\$NOMR.'/'.\$IDXDAFTAR));
         }
     }
 
-    public function delete(\$id,\$nomr,\$idxdaftar)
+    public function delete(\$id,\$NOMR,\$IDXDAFTAR)
     {
         \$row = \$this->" . $m . "->get_by_id(\$id);
 
@@ -185,13 +158,13 @@ $string .= "\n\t    );
             <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                 <span aria-hidden=\"true\"><i class=\"fal fa-times\"></i></span>
             </button><strong> Delete Record Success</strong></div>');
-            redirect(site_url('$c_url/list/'.\$nomr.'/'.\$idxdaftar));
+            redirect(site_url('$c_url/list/'.\$NOMR.'/'.\$IDXDAFTAR));
         } else {
             \$this->session->set_flashdata('message', '<div class=\"alert bg-warning-500\" role=\"alert\">
             <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                 <span aria-hidden=\"true\"><i class=\"fal fa-times\"></i></span>
             </button><strong> Record Not Found</strong></div>');
-            redirect(site_url('$c_url/list/'.\$nomr.'/'.\$idxdaftar));
+            redirect(site_url('$c_url/list/'.\$NOMR.'/'.\$IDXDAFTAR));
         }
     }
 

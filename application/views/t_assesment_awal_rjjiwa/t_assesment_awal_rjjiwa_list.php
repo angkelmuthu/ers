@@ -4,7 +4,7 @@
     <div class="col-xl-12">
         <div id="panel-1" class="panel">
             <div class="panel-hdr">
-                        <h2>KELOLA DATA ASSESMENT AWAL PENYAKIT JIWA (RAWAT JALAN)</h2>
+                        <h2>KELOLA DATA T_ASSESMENT_AWAL_RJJIWA</h2>
                         <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -20,7 +20,7 @@
                 <div class="panel-container show">
                     <div class="panel-content">
 
-                    <div class="frame-wrap">
+                    <div class="table-responsive">
                         <table id="example" class="table table-bordered table-hover table-striped">
                             <thead class="thead-themed">
             <tr>
@@ -62,9 +62,9 @@
 			<td><?php echo $data->KELUHAN_UTAMA ?></td>
 			<td><?php echo $data->RIWAYAT_PENYAKIT_SEKARANG ?></td>
 			<td><?php echo $data->RIWAYAT_PENYAKIT_DULU_SEKARANG ?></td>
-			<td><?php echo $data->RIWAYAT KELUARGA ?></td>
+			<td><?php echo $data->RIWAYAT_KELUARGA ?></td>
 			<td><?php echo $data->PEMERIKSAAN_STATUS_MENTAL ?></td>
-			<td><?php echo $data->PEMERIKSAAN PENUNJANG ?></td>
+			<td><?php echo $data->PEMERIKSAAN_PENUNJANG ?></td>
 			<td><?php echo $data->DIAGNOSA_KERJA ?></td>
 			<td><?php echo $data->TERAPI ?></td>
 			<td><?php echo $data->KONTROL_ULANG_TGL ?></td>
@@ -76,13 +76,13 @@
 			<td><?php echo $data->ID_DOKTER ?></td>
 			<td style="text-align:center" width="200px">
 				<?php 
-				echo anchor(site_url('t_assesment_awal_rjjiwa/read/'.$data->id),'<i class="fal fa-eye" aria-hidden="true"></i>','class="btn btn-info btn-xs waves-effect waves-themed"'); 
+				echo anchor(site_url('t_assesment_awal_rjjiwa/read/'.$data->ID_ASS),'<i class="fal fa-eye" aria-hidden="true"></i>','class="btn btn-info btn-xs waves-effect waves-themed"'); 
 				echo '  '; 
-				echo anchor(site_url('t_assesment_awal_rjjiwa/update/'.$data->nomr.'/'.$data->idxdaftar.'/'.$data->id),'<i class="fal fa-pencil" aria-hidden="true"></i>','class="btn btn-warning btn-xs waves-effect waves-themed"'); 
+				echo anchor(site_url('t_assesment_awal_rjjiwa/update/'.$data->NOMR.'/'.$data->IDXDAFTAR.'/'.$data->ID_ASS),'<i class="fal fa-pencil" aria-hidden="true"></i>','class="btn btn-warning btn-xs waves-effect waves-themed"'); 
 				echo '  '; 
 				echo
-    '<button type="button" class="btn btn-danger btn-xs waves-effect waves-themed" data-toggle="modal" data-target="#default-example-modal-sm'.$data->id.'"><i class="fal fa-trash" aria-hidden="true"></i></button>
-    <div class="modal fade" id="default-example-modal-sm'.$data->id.'" tabindex="-1" role="dialog" aria-hidden="true">
+    '<button type="button" class="btn btn-danger btn-xs waves-effect waves-themed" data-toggle="modal" data-target="#default-example-modal-sm'.$data->ID_ASS.'"><i class="fal fa-trash" aria-hidden="true"></i></button>
+    <div class="modal fade" id="default-example-modal-sm'.$data->ID_ASS.'" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header bg-info">
@@ -96,7 +96,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <a href="'.base_url().'t_assesment_awal_rjjiwa/delete/'.$data->id.'/'.$data->nomr.'/'.$data->idxdaftar.'" class="btn btn-primary">Ya, Hapus</a>
+                <a href="'.base_url().'t_assesment_awal_rjjiwa/delete/'.$data->ID_ASS.'/'.$data->NOMR.'/'.$data->IDXDAFTAR.'" class="btn btn-primary">Ya, Hapus</a>
             </div>
         </div>
     </div>

@@ -56,7 +56,7 @@ $string .= "</div>
                 <div class=\"panel-container show\">
                     <div class=\"panel-content\">
 
-                    <div class=\"frame-wrap\">
+                    <div class=\"table-responsive\">
                         <table class=\"table table-bordered table-hover table-striped\">
                             <thead class=\"thead-themed\">
             <tr>

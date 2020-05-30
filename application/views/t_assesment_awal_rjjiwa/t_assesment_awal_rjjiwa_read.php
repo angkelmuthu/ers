@@ -3,7 +3,7 @@
     <div class="col-xl-12">
         <div id="panel-1" class="panel">
             <div class="panel-hdr">
-                <h2>ASSESMENT AWAL PENYAKIT JIWA (RAWAT JALAN) Read</h2>
+                <h2>T_assesment_awal_rjjiwa Read</h2>
                 <div class="panel-toolbar">
                     <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                     <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -21,9 +21,9 @@
 	    <tr><td>KELUHAN UTAMA</td><td><?php echo $KELUHAN_UTAMA; ?></td></tr>
 	    <tr><td>RIWAYAT PENYAKIT SEKARANG</td><td><?php echo $RIWAYAT_PENYAKIT_SEKARANG; ?></td></tr>
 	    <tr><td>RIWAYAT PENYAKIT DULU SEKARANG</td><td><?php echo $RIWAYAT_PENYAKIT_DULU_SEKARANG; ?></td></tr>
-	    <tr><td>RIWAYAT KELUARGA</td><td><?php echo $RIWAYAT KELUARGA; ?></td></tr>
+	    <tr><td>RIWAYAT KELUARGA</td><td><?php echo $RIWAYAT_KELUARGA; ?></td></tr>
 	    <tr><td>PEMERIKSAAN STATUS MENTAL</td><td><?php echo $PEMERIKSAAN_STATUS_MENTAL; ?></td></tr>
-	    <tr><td>PEMERIKSAAN PENUNJANG</td><td><?php echo $PEMERIKSAAN PENUNJANG; ?></td></tr>
+	    <tr><td>PEMERIKSAAN PENUNJANG</td><td><?php echo $PEMERIKSAAN_PENUNJANG; ?></td></tr>
 	    <tr><td>DIAGNOSA KERJA</td><td><?php echo $DIAGNOSA_KERJA; ?></td></tr>
 	    <tr><td>TERAPI</td><td><?php echo $TERAPI; ?></td></tr>
 	    <tr><td>KONTROL ULANG TGL</td><td><?php echo $KONTROL_ULANG_TGL; ?></td></tr>
